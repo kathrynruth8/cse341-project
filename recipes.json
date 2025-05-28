@@ -1,0 +1,52 @@
+[
+  {
+    "recipeName": "Pepper Palm",
+    "creatorId": "user123",
+    "sodaBase": "Dr. Pepper",
+    "syrups": ["coconut", "vanilla"],
+    "cream": true,
+    "purees": [],
+    "otherIngredients": [],
+    "flavorTag": "creamy"
+  },
+  {
+    "recipeName": "Island Thunder",
+    "creatorId": "user456",
+    "sodaBase": "Mountain Dew",
+    "syrups": ["pineapple"],
+    "cream": true,
+    "purees": ["raspberry"],
+    "otherIngredients": ["fresh lime", "mint leaves"],
+    "flavorTag": "fruity"
+  },
+  {
+    "recipeName": "Limewired",
+    "creatorId": "user789",
+    "sodaBase": "Coke",
+    "syrups": ["coconut", "vanilla"],
+    "cream": false,
+    "purees": [],
+    "otherIngredients": ["fresh lime"],
+    "flavorTag": "classic"
+  },
+  {
+    "recipeName": "Dr. Shortcake",
+    "creatorId": "user234",
+    "sodaBase": "Dr. Pepper",
+    "syrups": ["vanilla"],
+    "cream": true,
+    "purees": ["strawberry"],
+    "otherIngredients": [],
+    "flavorTag": "creamy"
+  },
+  {
+    "recipeName": "Pink Oasis",
+    "creatorId": "user567",
+    "sodaBase": "sparkling water",
+    "syrups": ["coconut", "vanilla"],
+    "cream": true,
+    "purees": ["strawberry"],
+    "otherIngredients": ["strawberry slices"],
+    "flavorTag": "refreshing"
+  }
+]

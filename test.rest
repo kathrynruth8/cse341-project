@@ -1,0 +1,39 @@
+// Recipes
+### Get all soda recipes
+GET http://localhost:3000/sodas
+
+### Get recipe by id 
+GET http://localhost:3000/sodas/683686f9850ca9defb21661a
+
+### Create a new soda recipe
+POST http://localhost:3000/sodas
+Content-Type: application/json
+
+{
+    "recipeName": "Orange You Glad",
+    "creatorId": "user456",
+    "sodaBase": "Lemonade",
+    "syrups": ["guava", "grapefruit"],
+    "cream": false,
+    "purees": [],
+    "otherIngredients": ["fresh orange"],
+    "flavorTag": "fruity"
+  }
+
+### Update soda recipe
+PUT http://localhost:3000/sodas/68368e05f02d1d844f99fb51
+Content-Type: application/json
+
+{
+    "recipeName": "Orange You Glad",
+    "creatorId": "user456",
+    "sodaBase": "Lemonade",
+    "syrups": ["guava", "grapefruit","pineapple"],
+    "cream": false,
+    "purees": [],
+    "otherIngredients": ["fresh orange"],
+    "flavorTag": "fruity"
+}
+
+### Delete soda recipe by id
+DELETE http://localhost:3000/sodas/68368e05f02d1d844f99fb51
