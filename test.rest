@@ -2,11 +2,32 @@
 ### Get all soda recipes
 GET http://localhost:3000/sodas
 
+### Get all soda recipes - RENDER
+GET https://cse341-project-d23b.onrender.com/sodas
+
 ### Get recipe by id 
 GET http://localhost:3000/sodas/683686f9850ca9defb21661a
 
+### Get recipe by id - RENDER
+GET https://cse341-project-d23b.onrender.com/sodas/683686f9850ca9defb21661a
+
 ### Create a new soda recipe
 POST http://localhost:3000/sodas
+Content-Type: application/json
+
+{
+    "recipeName": "Orange You Glad",
+    "creatorId": "user456",
+    "sodaBase": "Lemonade",
+    "syrups": ["guava", "grapefruit"],
+    "cream": false,
+    "purees": [],
+    "otherIngredients": ["fresh orange"],
+    "flavorTag": "fruity"
+  }
+
+### Create a new soda recipe - RENDER
+POST https://cse341-project-d23b.onrender.com/sodas/
 Content-Type: application/json
 
 {
@@ -35,5 +56,24 @@ Content-Type: application/json
     "flavorTag": "fruity"
 }
 
+### Update soda recipe - RENDER
+PUT https://cse341-project-d23b.onrender.com/sodas/6836970d1b8ea04ed8b29c8e
+Content-Type: application/json
+
+{
+    "recipeName": "Orange You Glad",
+    "creatorId": "user456",
+    "sodaBase": "Lemonade",
+    "syrups": ["guava", "grapefruit","pineapple"],
+    "cream": false,
+    "purees": [],
+    "otherIngredients": ["fresh orange"],
+    "flavorTag": "fruity"
+}
+
 ### Delete soda recipe by id
 DELETE http://localhost:3000/sodas/68368e05f02d1d844f99fb51
+
+### Delete soda recipe by id - RENDER
+DELETE https://cse341-project-d23b.onrender.com/sodas/683699f8c3194843ce3ecd1f
+
