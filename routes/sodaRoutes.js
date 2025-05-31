@@ -69,34 +69,14 @@ router.get('/:id', sodaController.getRecipeById);
  *       content:
  *         application/json:
  *           schema:
- *             type: object
- *             required:
- *              - recipeName
- *              - creatorId
- *              - sodaBase
- *             properties:
- *               recipeName:
- *                 type: string
- *               creatorId:
- *                 type: string
- *               sodaBase:
- *                 type: string
- *               syrups:
- *                 type: array
- *                 items:
- *                   type: string
- *               cream:
- *                 type: boolean
- *               purees:
- *                 type: array
- *                 items:
- *                   type: string
- *               otherIngredients:
- *                 type: array
- *                 items:
- *                   type: string
- *               flavorTag:
- *                 type: string
+ *             recipeName: "Razzle Dazzle Berry"
+ *             creatorId: "user123"
+ *             sodaBase: "Dr. Pepper"
+ *             syrups: ["raspberry", "strawberry"]
+ *             cream: true
+ *             purees: []
+ *             otherIngredients: []
+ *             flavorTag: "fruity"
  *     responses:
  *       201:
  *         description: Soda recipe created
@@ -121,30 +101,14 @@ router.post('/', sodaValidationRules, validate, sodaController.createRecipe);
  *       content:
  *         application/json:
  *           schema:
- *             type: object
- *             properties:
- *               recipeName:
- *                 type: string
- *               creatorId:
- *                 type: string
- *               sodaBase:
- *                 type: string
- *               syrups:
- *                 type: array
- *                 items:
- *                   type: string
- *               cream:
- *                 type: boolean
- *               purees:
- *                 type: array
- *                 items:
- *                   type: string
- *               otherIngredients:
- *                 type: array
- *                 items:
- *                   type: string
- *               flavorTag:
- *                 type: string
+ *             recipeName: "Razzle Dazzle Berry"
+ *             creatorId: "user123"
+ *             sodaBase: "Dr. Pepper"
+ *             syrups: ["raspberry", "strawberry"]
+ *             cream: true
+ *             purees: []
+ *             otherIngredients: []
+ *             flavorTag: "fruity"
  *     responses:
  *       204:
  *         description: Soda recipe updated

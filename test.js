@@ -1,40 +1,58 @@
-// PUT /recipes/:id
-exports.updateRecipe = async (req, res) => {
-  const { id } = req.params;
-  if (!ObjectId.isValid(id)) {
-    return res.status(400).json({ message: 'Invalid soda recipe ID' });
-  }
+// POST new recipe
+/**
+ * @swagger
+ * /sodas:
+ *   post:
+ *     tags: [Sodas]
+ *     summary: Create a new soda recipe
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             recipeName: "Razzle Dazzle Berry"
+ *             creatorId: "user123"
+ *             sodaBase: "Dr. Pepper"
+ *             syrups: ["raspberry", "strawberry"]
+ *             cream: true
+ *             purees: []
+ *             otherIngredients: []
+ *             flavorTag: "fruity"
+ *     responses:
+ *       201:
+ *         description: Soda recipe created
+ */
+router.post('/', sodaValidationRules, validate, sodaController.createRecipe);
 
-  try {
-    const result = await Recipe.findByIdAndUpdate(id, req.body, {
-      new: false,
-      runValidators: true,
-    });
-
-    if (!result) {
-      return res.status(404).json({ message: 'Soda recipe not found' });
-    }
-
-    return res.status(204).send(); // ✅ No Content
-  } catch (err) {
-    return res.status(400).json({ message: 'Error updating soda recipe' });
-  }
-};
-
-// DELETE /recipes/:id
-exports.deleteRecipe = async (req, res) => {
-  const { id } = req.params;
-  if (!ObjectId.isValid(id)) {
-    return res.status(400).json({ message: 'Invalid soda recipe ID' });
-  }
-
-  try {
-    const deleted = await Recipe.findByIdAndDelete(id);
-    if (!deleted) {
-      return res.status(404).json({ message: 'Soda recipe not found' });
-    }
-    return res.status(204).send(); // ✅ No Content (optional: could also return 200 with a message)
-  } catch (err) {
-    return res.status(400).json({ message: 'Error deleting soda recipe' });
-  }
-};
+// PUT update recipe
+/**
+ * @swagger
+ * /sodas/{id}:
+ *   put:
+ *     tags: [Sodas]
+ *     summary: Update a soda recipe
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: Soda recipe ID
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             recipeName: "Updated Recipe Name"
+ *             creatorId: "user123"
+ *             sodaBase: "Club Soda"
+ *             syrups: ["Vanilla"]
+ *             cream: true
+ *             purees: ["Mango"]
+ *             otherIngredients: ["Lime"]
+ *             flavorTag: "Fruity"
+ *     responses:
+ *       204:
+ *         description: Soda recipe updated
+ */
+router.put('/:id', sodaValidationRules, validate, sodaController.updateRecipe);
