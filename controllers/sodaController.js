@@ -24,6 +24,17 @@ exports.getRecipeById = async (req, res) => {
 
 // POST /recipes
 exports.createRecipe = async (req, res) => {
+  const recipe = {
+    recipeName: req.body.recipeName,
+    creatorId: req.body.creatorId,
+    sodaBase: req.body.sodaBase,
+    syrups: req.body.syrups,
+    cream: req.body.cream,
+    purees: req.body.purees,
+    otherIngredients: req.body.otherIngredients,
+    flavorTag: req.body.flavorTag,
+  };
+
   try {
     const newRecipe = new Recipe(req.body);
     await newRecipe.save();
@@ -35,6 +46,17 @@ exports.createRecipe = async (req, res) => {
 
 // PUT /recipes/:id
 exports.updateRecipe = async (req, res) => {
+  const updatedRecipe = {
+    recipeName: req.body.recipeName,
+    creatorId: req.body.creatorId,
+    sodaBase: req.body.sodaBase,
+    syrups: req.body.syrups,
+    cream: req.body.cream,
+    purees: req.body.purees,
+    otherIngredients: req.body.otherIngredients,
+    flavorTag: req.body.flavorTag,
+  };
+
   try {
     const updatedRecipe = await Recipe.findByIdAndUpdate(
       req.params.id,

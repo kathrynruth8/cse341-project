@@ -25,6 +25,41 @@
       },
       "post": {
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "recipeName": {
+                  "example": "any"
+                },
+                "creatorId": {
+                  "example": "any"
+                },
+                "sodaBase": {
+                  "example": "any"
+                },
+                "syrups": {
+                  "example": "any"
+                },
+                "cream": {
+                  "example": "any"
+                },
+                "purees": {
+                  "example": "any"
+                },
+                "otherIngredients": {
+                  "example": "any"
+                },
+                "flavorTag": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -66,6 +101,39 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "recipeName": {
+                  "example": "any"
+                },
+                "creatorId": {
+                  "example": "any"
+                },
+                "sodaBase": {
+                  "example": "any"
+                },
+                "syrups": {
+                  "example": "any"
+                },
+                "cream": {
+                  "example": "any"
+                },
+                "purees": {
+                  "example": "any"
+                },
+                "otherIngredients": {
+                  "example": "any"
+                },
+                "flavorTag": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {
