@@ -10,6 +10,6 @@ const doc = {
 };
 
 const outputFile = './swagger.json';
-const endpointsFiles = ['./routes/sodaRoutes.js']; // Adjust if your routes file is named differently
+const endpointsFiles = ['./index.js'];
 
 swaggerAutogen(outputFile, endpointsFiles, doc);

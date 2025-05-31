@@ -11,7 +11,7 @@
     "https"
   ],
   "paths": {
-    "/": {
+    "/sodas/": {
       "get": {
         "description": "",
         "responses": {
@@ -35,7 +35,7 @@
         }
       }
     },
-    "/{id}": {
+    "/sodas/{id}": {
       "get": {
         "description": "",
         "parameters": [
