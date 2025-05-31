@@ -5,7 +5,7 @@ const doc = {
     title: 'Soda Recipe API',
     description: 'API for managing custom soda recipes',
   },
-  host: 'https://cse341-project-d23b.onrender.com',
+  host: 'cse341-project-d23b.onrender.com',
   schemes: ['https'],
 };
 
