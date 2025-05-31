@@ -65,6 +65,10 @@ router.get('/:id', sodaController.getRecipeById);
  *         application/json:
  *           schema:
  *             type: object
+ *             required:
+ *              - recipeName
+ *              - creatorId
+ *              - sodaBase
  *             properties:
  *               recipeName:
  *                 type: string
@@ -116,7 +120,25 @@ router.post('/', sodaController.createRecipe);
  *             properties:
  *               recipeName:
  *                 type: string
+ *               creatorId:
+ *                 type: string
  *               sodaBase:
+ *                 type: string
+ *               syrups:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *               cream:
+ *                 type: boolean
+ *               purees:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *               otherIngredients:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *               flavorTag:
  *                 type: string
  *     responses:
  *       200:
