@@ -5,11 +5,13 @@
     "description": "API for managing custom soda recipes",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "https://cse341-project-d23b.onrender.com",
   "basePath": "/",
-  "schemes": ["http"],
+  "schemes": [
+    "https"
+  ],
   "paths": {
-    "/sodas/": {
+    "/": {
       "get": {
         "description": "",
         "responses": {
@@ -33,7 +35,7 @@
         }
       }
     },
-    "/sodas/{id}": {
+    "/{id}": {
       "get": {
         "description": "",
         "parameters": [
