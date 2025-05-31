@@ -5,7 +5,7 @@
     "description": "API for managing custom soda recipes",
     "version": "1.0.0"
   },
-  "host": "cse341-l02-ec83.onrender.com",
+  "host": "cse341-project-d23b.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
