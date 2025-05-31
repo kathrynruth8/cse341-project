@@ -2,6 +2,10 @@ const express = require('express');
 const router = express.Router();
 const sodaController = require('../controllers/sodaController');
 
+// Validation
+const { sodaValidationRules } = require('../middleware/sodaValidator');
+const { validate } = require('../middleware/validate');
+
 // Soda recipe routes
 // router.get('/', sodaController.getAllRecipes);
 // router.get('/:id', sodaController.getRecipeById);
@@ -96,7 +100,7 @@ router.get('/:id', sodaController.getRecipeById);
  *       201:
  *         description: Soda recipe created
  */
-router.post('/', sodaController.createRecipe);
+router.post('/', sodaValidationRules, validate, sodaController.createRecipe);
 
 // PUT update recipe
 /**
@@ -141,10 +145,10 @@ router.post('/', sodaController.createRecipe);
  *               flavorTag:
  *                 type: string
  *     responses:
- *       200:
+ *       204:
  *         description: Soda recipe updated
  */
-router.put('/:id', sodaController.updateRecipe);
+router.put('/:id', sodaValidationRules, validate, sodaController.updateRecipe);
 
 // DELETE recipe
 /**

@@ -1,10 +1,11 @@
 const Recipe = require('../models/sodaModel');
+const { ObjectId } = require('mongodb');
 
 // GET /recipes
 exports.getAllRecipes = async (req, res) => {
   try {
     const recipes = await Recipe.find();
-    res.json(recipes);
+    return res.json(recipes);
   } catch (err) {
     res.status(500).json({ message: 'Server error' });
   }
@@ -12,76 +13,86 @@ exports.getAllRecipes = async (req, res) => {
 
 // GET /recipes/:id
 exports.getRecipeById = async (req, res) => {
+  const { id } = req.params;
+  if (!ObjectId.isValid(id)) {
+    return res.status(400).json({ message: 'Invalid soda recipe ID' });
+  }
   try {
-    const recipe = await Recipe.findById(req.params.id);
+    const recipe = await Recipe.findById(id);
     if (!recipe)
       return res.status(404).json({ message: 'Soda recipe not found' });
-    res.json(recipe);
+    return res.json(recipe);
   } catch (err) {
-    res.status(400).json({ message: 'Invalid ID' });
+    return res.status(400).json({ message: 'Error retrieving recipe' });
   }
 };
 
 // POST /recipes
 exports.createRecipe = async (req, res) => {
-  const recipe = {
-    recipeName: req.body.recipeName,
-    creatorId: req.body.creatorId,
-    sodaBase: req.body.sodaBase,
-    syrups: req.body.syrups,
-    cream: req.body.cream,
-    purees: req.body.purees,
-    otherIngredients: req.body.otherIngredients,
-    flavorTag: req.body.flavorTag,
-  };
+  // const recipe = {
+  //   recipeName: req.body.recipeName,
+  //   creatorId: req.body.creatorId,
+  //   sodaBase: req.body.sodaBase,
+  //   syrups: req.body.syrups,
+  //   cream: req.body.cream,
+  //   purees: req.body.purees,
+  //   otherIngredients: req.body.otherIngredients,
+  //   flavorTag: req.body.flavorTag,
+  // };
 
   try {
     const newRecipe = new Recipe(req.body);
     await newRecipe.save();
-    res.status(201).json(newRecipe);
+    return res.status(201).json(newRecipe);
   } catch (err) {
-    res.status(400).json({ message: 'Error creating soda recipe' });
+    return res.status(400).json({ message: 'Error creating soda recipe' });
   }
 };
 
 // PUT /recipes/:id
 exports.updateRecipe = async (req, res) => {
-  const updatedRecipe = {
-    recipeName: req.body.recipeName,
-    creatorId: req.body.creatorId,
-    sodaBase: req.body.sodaBase,
-    syrups: req.body.syrups,
-    cream: req.body.cream,
-    purees: req.body.purees,
-    otherIngredients: req.body.otherIngredients,
-    flavorTag: req.body.flavorTag,
-  };
+  const { id } = req.params;
+  if (!ObjectId.isValid(id)) {
+    res.status(400).json({ message: 'Invalid soda recipe ID' });
+  }
+  // const updatedRecipe = {
+  //   recipeName: req.body.recipeName,
+  //   creatorId: req.body.creatorId,
+  //   sodaBase: req.body.sodaBase,
+  //   syrups: req.body.syrups,
+  //   cream: req.body.cream,
+  //   purees: req.body.purees,
+  //   otherIngredients: req.body.otherIngredients,
+  //   flavorTag: req.body.flavorTag,
+  // };
 
   try {
-    const updatedRecipe = await Recipe.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      {
-        new: true,
-        runValidators: true,
-      }
-    );
-    if (!updatedRecipe)
+    const result = await Recipe.findByIdAndUpdate(id, req.body, {
+      new: false,
+      runValidators: true,
+    });
+
+    if (!result)
       return res.status(404).json({ message: 'Soda recipe not found' });
-    res.json(updatedRecipe);
+
+    return res.status(204).send();
   } catch (err) {
-    res.status(400).json({ message: 'Error updating soda recipe' });
+    return res.status(400).json({ message: 'Error updating soda recipe' });
   }
 };
 
 // DELETE /recipes/:id
 exports.deleteRecipe = async (req, res) => {
+  const { id } = req.params;
+  if (!ObjectId.isValid(id)) {
+    return res.status(400).json({ message: 'Invalid soda recipe ID' });
+  }
   try {
-    const deletedRecipe = await Recipe.findByIdAndDelete(req.params.id);
-    if (!deletedRecipe)
+    const deleted = await Recipe.findByIdAndDelete(id);
+    if (!deleted)
       return res.status(404).json({ message: 'Soda recipe not found' });
     res.json({ message: 'Soda recipe deleted successfully' });
   } catch (err) {
-    res.status(400).json({ message: 'Invalid ID' });
+    res.status(400).json({ message: 'Error deleting soda recipe' });
   }
 };

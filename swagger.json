@@ -5,10 +5,10 @@
     "description": "API for managing custom soda recipes",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "cse341-l02-ec83.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/sodas/": {
@@ -25,41 +25,6 @@
       },
       "post": {
         "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "recipeName": {
-                  "example": "any"
-                },
-                "creatorId": {
-                  "example": "any"
-                },
-                "sodaBase": {
-                  "example": "any"
-                },
-                "syrups": {
-                  "example": "any"
-                },
-                "cream": {
-                  "example": "any"
-                },
-                "purees": {
-                  "example": "any"
-                },
-                "otherIngredients": {
-                  "example": "any"
-                },
-                "flavorTag": {
-                  "example": "any"
-                }
-              }
-            }
-          }
-        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -101,44 +66,11 @@
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "recipeName": {
-                  "example": "any"
-                },
-                "creatorId": {
-                  "example": "any"
-                },
-                "sodaBase": {
-                  "example": "any"
-                },
-                "syrups": {
-                  "example": "any"
-                },
-                "cream": {
-                  "example": "any"
-                },
-                "purees": {
-                  "example": "any"
-                },
-                "otherIngredients": {
-                  "example": "any"
-                },
-                "flavorTag": {
-                  "example": "any"
-                }
-              }
-            }
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "No Content"
           },
           "400": {
             "description": "Bad Request"

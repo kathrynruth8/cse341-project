@@ -1,107 +1,40 @@
-const { ObjectId } = require('mongodb');
-const { getDb } = require('../db/connect.js');
+// PUT /recipes/:id
+exports.updateRecipe = async (req, res) => {
+  const { id } = req.params;
+  if (!ObjectId.isValid(id)) {
+    return res.status(400).json({ message: 'Invalid soda recipe ID' });
+  }
 
-module.exports = {
-  getAllContacts: async (req, res) => {
-    try {
-      const db = getDb();
-      const contacts = await db.collection('contacts').find().toArray();
-      res.status(200).json(contacts);
-    } catch (err) {
-      res.status(500).json({ message: err.message });
-    }
-  },
+  try {
+    const result = await Recipe.findByIdAndUpdate(id, req.body, {
+      new: false,
+      runValidators: true,
+    });
 
-  getSingleContact: async (req, res) => {
-    try {
-      const db = getDb();
-      const id = new ObjectId(req.params.id);
-      const contact = await db.collection('contacts').findOne({ _id: id });
-      if (!contact)
-        return res.status(404).json({ message: 'Contact not found' });
-      res.status(200).json(contact);
-    } catch (err) {
-      res.status(500).json({ message: err.message });
-    }
-  },
-
-  createContact: async (req, res) => {
-    console.log(req.body); // Debug the request body
-
-    const contact = {
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      favoriteColor: req.body.favoriteColor,
-      birthday: req.body.birthday,
-    };
-
-    try {
-      const db = getDb(); // Fixed line
-      const response = await db.collection('contacts').insertOne(contact);
-      if (response.acknowledged) {
-        res.status(201).json(response);
-      } else {
-        res.status(500).json({
-          error: 'Insert failed or not acknowledged',
-        });
-      }
-    } catch (err) {
-      res.status(500).json({ error: err.message });
-    }
-  },
-  updateContact: async (req, res) => {
-    const contactId = req.params.id;
-
-    // Validate the ID
-    if (!ObjectId.isValid(contactId)) {
-      return res.status(400).json({ message: 'Invalid contact ID' });
+    if (!result) {
+      return res.status(404).json({ message: 'Soda recipe not found' });
     }
 
-    const updatedContact = {
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      favoriteColor: req.body.favoriteColor,
-      birthday: req.body.birthday,
-    };
+    return res.status(204).send(); // ✅ No Content
+  } catch (err) {
+    return res.status(400).json({ message: 'Error updating soda recipe' });
+  }
+};
 
-    try {
-      const db = getDb();
-      const result = await db
-        .collection('contacts')
-        .updateOne({ _id: new ObjectId(contactId) }, { $set: updatedContact });
+// DELETE /recipes/:id
+exports.deleteRecipe = async (req, res) => {
+  const { id } = req.params;
+  if (!ObjectId.isValid(id)) {
+    return res.status(400).json({ message: 'Invalid soda recipe ID' });
+  }
 
-      if (result.matchedCount === 0) {
-        return res.status(404).json({ message: 'Contact not found' });
-      }
-
-      res.status(204).send(); // No content, successful update
-    } catch (err) {
-      res.status(500).json({ message: err.message });
+  try {
+    const deleted = await Recipe.findByIdAndDelete(id);
+    if (!deleted) {
+      return res.status(404).json({ message: 'Soda recipe not found' });
     }
-  },
-  deleteContact: async (req, res) => {
-    const contactId = req.params.id;
-
-    // Check if the ID is valid
-    if (!ObjectId.isValid(contactId)) {
-      return res.status(400).json({ message: 'Invalid contact ID' });
-    }
-
-    try {
-      const db = getDb();
-      const result = await db
-        .collection('contacts')
-        .deleteOne({ _id: new ObjectId(contactId) });
-
-      if (result.deletedCount === 0) {
-        return res.status(404).json({ message: 'Contact not found' });
-      }
-
-      res.status(200).json({ message: 'Contact successfully deleted' });
-    } catch (err) {
-      res.status(500).json({ message: err.message });
-    }
-  },
+    return res.status(204).send(); // ✅ No Content (optional: could also return 200 with a message)
+  } catch (err) {
+    return res.status(400).json({ message: 'Error deleting soda recipe' });
+  }
 };

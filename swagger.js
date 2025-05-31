@@ -5,8 +5,10 @@ const doc = {
     title: 'Soda Recipe API',
     description: 'API for managing custom soda recipes',
   },
-  host: 'localhost:3000',
-  schemes: ['http'],
+  host: 'cse341-l02-ec83.onrender.com',
+  schemes: ['https'],
+  // host: 'localhost:3000',
+  // schemes: ['http'],
 };
 
 const outputFile = './swagger.json';
