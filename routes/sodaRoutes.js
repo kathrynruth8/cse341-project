@@ -7,15 +7,17 @@ const sodaController = require('../controllers/sodaController');
 const { sodaValidationRules } = require('../middleware/sodaValidator');
 const { validate } = require('../middleware/validate');
 
-// prettier-ignore
 // GET all soda recipes
+
+// prettier-ignore
 // #swagger.tags = ['Sodas']
 // #swagger.summary = 'Get all soda recipes'
 router.get('/',sodaController.getAllRecipes
 );
 
-// prettier-ignore
 // GET soda recipe by ID
+
+// prettier-ignore
 // #swagger.tags = ['Sodas']
 // #swagger.summary = 'Get a soda recipe by ID'
 // #swagger.parameters['id'] = {
@@ -27,8 +29,9 @@ router.get('/',sodaController.getAllRecipes
 router.get('/:id',sodaController.getRecipeById
 );
 
-// prettier-ignore
 // POST new soda recipe
+
+// prettier-ignore
 // #swagger.tags = ['Sodas']
 // #swagger.summary = 'Create a new soda recipe'
 // #swagger.requestBody = {
@@ -48,10 +51,11 @@ router.get('/:id',sodaController.getRecipeById
 //     }
 //   }
 // }
-router.post('/',sodaValidationRules, validate, sodaController.createRecipe);
+router.post('/', sodaController.createRecipe);
+
+// PUT update soda recipe
 
 // prettier-ignore
-// PUT update soda recipe
 // #swagger.tags = ['Sodas']
 // #swagger.summary = 'Update a soda recipe'
 // #swagger.parameters['id'] = {
@@ -79,9 +83,9 @@ router.post('/',sodaValidationRules, validate, sodaController.createRecipe);
 // }
 router.put('/:id',sodaValidationRules, validate, sodaController.updateRecipe);
 
-// prettier-ignore
 // DELETE soda recipe
 
+// prettier-ignore
 // #swagger.tags = ['Sodas']
 // #swagger.summary = 'Delete a soda recipe'
 // #swagger.parameters['id'] = {
