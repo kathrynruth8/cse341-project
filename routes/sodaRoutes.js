@@ -12,7 +12,7 @@ const { validate } = require('../middleware/validate');
 // prettier-ignore
 // #swagger.tags = ['Sodas']
 // #swagger.summary = 'Get all soda recipes'
-router.get('/',sodaController.getAllRecipes
+router.get('/sodas',sodaController.getAllRecipes
 );
 
 // GET soda recipe by ID
@@ -26,7 +26,7 @@ router.get('/',sodaController.getAllRecipes
 //     required: true,
 //     type: 'string'
 // }
-router.get('/:id',sodaController.getRecipeById
+router.get('/sodas/:id',sodaController.getRecipeById
 );
 
 // POST new soda recipe
@@ -51,7 +51,7 @@ router.get('/:id',sodaController.getRecipeById
 //     }
 //   }
 // }
-router.post('/', sodaController.createRecipe);
+router.post('/sodas', sodaController.createRecipe);
 
 // PUT update soda recipe
 
@@ -81,7 +81,7 @@ router.post('/', sodaController.createRecipe);
 //     }
 //   }
 // }
-router.put('/:id',sodaValidationRules, validate, sodaController.updateRecipe);
+router.put('/sodas/:id',sodaValidationRules, validate, sodaController.updateRecipe);
 
 // DELETE soda recipe
 
@@ -94,6 +94,6 @@ router.put('/:id',sodaValidationRules, validate, sodaController.updateRecipe);
 //     required: true,
 //     type: 'string'
 // }
-router.delete('/:id',sodaController.deleteRecipe);
+router.delete('/sodas/:id',sodaController.deleteRecipe);
 
 module.exports = router;
