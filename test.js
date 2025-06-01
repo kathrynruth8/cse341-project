@@ -1,3 +1,47 @@
+// Soda recipe routes for swagger
+// #region Swagger Tags
+/**
+ * @swagger
+ * tags:
+ *   name: Sodas
+ *   description: Soda recipe management
+ */
+// #endregion
+
+// GET all recipes
+
+/**
+ * @swagger
+ * /sodas:
+ *   get:
+ *     tags: [Sodas]
+ *     summary: Get all soda recipes
+ *     responses:
+ *       200:
+ *         description: A list of soda recipes
+ */
+router.get('/', sodaController.getAllRecipes);
+
+// GET by ID
+/**
+ * @swagger
+ * /sodas/{id}:
+ *   get:
+ *     tags: [Sodas]
+ *     summary: Get a soda recipe by ID
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: Soda recipe ID
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: A single soda recipe
+ */
+router.get('/:id', sodaController.getRecipeById);
+
 // POST new recipe
 /**
  * @swagger
@@ -35,7 +79,6 @@ router.post('/', sodaValidationRules, validate, sodaController.createRecipe);
  *       - in: path
  *         name: id
  *         required: true
- *         description: Soda recipe ID
  *         schema:
  *           type: string
  *     requestBody:
@@ -43,16 +86,35 @@ router.post('/', sodaValidationRules, validate, sodaController.createRecipe);
  *       content:
  *         application/json:
  *           schema:
- *             recipeName: "Updated Recipe Name"
+ *             recipeName: "Razzle Dazzle Berry"
  *             creatorId: "user123"
- *             sodaBase: "Club Soda"
- *             syrups: ["Vanilla"]
+ *             sodaBase: "Dr. Pepper"
+ *             syrups: ["raspberry", "strawberry"]
  *             cream: true
- *             purees: ["Mango"]
- *             otherIngredients: ["Lime"]
- *             flavorTag: "Fruity"
+ *             purees: []
+ *             otherIngredients: []
+ *             flavorTag: "fruity"
  *     responses:
  *       204:
  *         description: Soda recipe updated
  */
 router.put('/:id', sodaValidationRules, validate, sodaController.updateRecipe);
+
+// DELETE recipe
+/**
+ * @swagger
+ * /sodas/{id}:
+ *   delete:
+ *     tags: [Sodas]
+ *     summary: Delete a soda recipe
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Soda recipe deleted
+ */
+router.delete('/:id', sodaController.deleteRecipe);
