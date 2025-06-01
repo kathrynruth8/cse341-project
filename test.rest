@@ -94,5 +94,5 @@ Content-Type: application/json
 DELETE http://localhost:3000/sodas/683b7b62307314eb220179ab
 
 ### Delete soda recipe by id - RENDER
-DELETE https://cse341-project-d23b.onrender.com/sodas/683699f8c3194843ce3ecd1f
+DELETE https://cse341-project-d23b.onrender.com/sodas/683bc2566a413b21210bac36
 
