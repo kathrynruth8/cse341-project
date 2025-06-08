@@ -23,6 +23,59 @@
       },
       "post": {
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "recipeName": {
+                  "type": "string",
+                  "example": "Dr Dreamy"
+                },
+                "creatorId": {
+                  "type": "string",
+                  "example": "user287"
+                },
+                "sodaBase": {
+                  "type": "string",
+                  "example": "Dr. Pepper"
+                },
+                "syrups": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "example": ["coconut", "vanilla", "raspberry"]
+                },
+                "cream": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "purees": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "example": []
+                },
+                "otherIngredients": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "example": []
+                },
+                "flavorTag": {
+                  "type": "string",
+                  "example": "creamy"
+                }
+              },
+              "required": ["recipeName", "creatorId", "sodaBase"]
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -48,11 +101,11 @@
           "200": {
             "description": "OK"
           },
-          "400": {
-            "description": "Bad Request"
-          },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -64,17 +117,71 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "recipeName": {
+                  "type": "string",
+                  "example": "Dr Dreamy"
+                },
+                "creatorId": {
+                  "type": "string",
+                  "example": "user287"
+                },
+                "sodaBase": {
+                  "type": "string",
+                  "example": "Dr. Pepper"
+                },
+                "syrups": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "example": ["coconut", "vanilla", "raspberry"]
+                },
+                "cream": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "purees": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "example": []
+                },
+                "otherIngredients": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "example": []
+                },
+                "flavorTag": {
+                  "type": "string",
+                  "example": "creamy"
+                }
+              },
+              "required": ["recipeName", "creatorId", "sodaBase"]
+            }
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "No Content"
           },
           "400": {
             "description": "Bad Request"
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -97,6 +204,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
