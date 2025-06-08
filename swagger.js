@@ -18,3 +18,7 @@ swaggerAutogen(outputFile, endpointsFiles, doc).then(() => {
 
 // host: 'localhost:3000',
 // schemes: ['http']
+
+// "host": "cse341-project-d23b.onrender.com",
+// "basePath": "/",
+// "schemes": ["https"],
