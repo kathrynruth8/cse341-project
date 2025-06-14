@@ -20,6 +20,9 @@ mongoose
 const sodaRoutes = require('./routes/sodaRoutes');
 app.use('/sodas', sodaRoutes);
 
+const userRoutes = require('./routes/userRoutes');
+app.use('/users', userRoutes);
+
 // Swagger
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 

@@ -1,0 +1,44 @@
+[
+  {
+    "username": "harrypotter1",
+    "firstname": "Harry",
+    "lastname": "Potter",
+    "email": "hpotter@hogwarts.com",
+    "password": "Quidd!tchL0v3r"
+  },
+  {
+    "username": "ronweasley6",
+    "firstname": "Ron",
+    "lastname": "Weasley",
+    "email": "rweasley@hogwarts.com",
+    "password": "Scabb3rstheR@t"
+  },
+  {
+    "username": "hermioniegranger",
+    "firstname": "Hermione",
+    "lastname": "Granger",
+    "email": "hgranger@hogwarts.com",
+    "password": "Cr00ksh@nks"
+  },
+  {
+    "username": "severussnape",
+    "firstname": "Severus",
+    "lastname": "Snape",
+    "email": "ssnape@hogwarts.com",
+    "password": "Sectums3mpr@"
+  },
+  {
+    "username": "albusdumbledore",
+    "firstname": "Albus",
+    "lastname": "Dumbledore",
+    "email": "adumbledore@hogwarts.com",
+    "password": "$herbetLem0n"
+  },
+  {
+    "username": "dracomalfoy",
+    "firstname": "Draco",
+    "lastname": "Malfoy",
+    "email": "dmalfoy@hogwarts.com",
+    "password": "Malf0ym@nor"
+  }
+]

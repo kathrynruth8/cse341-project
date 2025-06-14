@@ -2,6 +2,9 @@
 ### Get all soda recipes
 GET http://localhost:3000/sodas
 
+### Get all users
+GET http://localhost:3000/users
+
 ### Get all soda recipes - RENDER
 GET https://cse341-project-d23b.onrender.com/sodas
 
