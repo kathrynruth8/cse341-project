@@ -210,6 +210,165 @@
           }
         }
       }
+    },
+    "/users": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "example": "hpotter1"
+                },
+                "firstname": {
+                  "type": "string",
+                  "example": "Harry"
+                },
+                "lastname": {
+                  "type": "string",
+                  "example": "Potter"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "hpotter@hogwarts.com"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "Quidd!tchL0v3r"
+                }
+              },
+              "required": [
+                "username",
+                "firstname",
+                "lastname",
+                "email",
+                "password"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "example": "hpotter1"
+                },
+                "firstname": {
+                  "type": "string",
+                  "example": "Harry"
+                },
+                "lastname": {
+                  "type": "string",
+                  "example": "Potter"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "hpotter@hogwarts.com"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "Quidd!tchL0v3r"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
     }
   }
 }
