@@ -2,9 +2,6 @@
 ### Get all soda recipes
 GET http://localhost:3000/sodas
 
-### Get all users
-GET http://localhost:3000/users
-
 ### Get all soda recipes - RENDER
 GET https://cse341-project-d23b.onrender.com/sodas
 
@@ -99,3 +96,36 @@ DELETE http://localhost:3000/sodas/683b7b62307314eb220179ab
 ### Delete soda recipe by id - RENDER
 DELETE https://cse341-project-d23b.onrender.com/sodas/683bc2566a413b21210bac36
 
+### Get all users
+GET http://localhost:3000/users
+
+### Get user by ID
+GET http://localhost:3000/users/684de1393114f82bfd039789
+
+### Create a new user
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "username": "sblack",
+    "firstname": "Sirius",
+    "lastname": "Black",
+    "email": "sblack@hogwarts.com",
+    "password": "P@df00t"
+  }
+
+### Update user
+PUT http://localhost:3000/users/684e2c311777bb3e02b60da2
+Content-Type: application/json
+
+{
+    
+    "username": "sblack4",
+    "firstname": "Sirius",
+    "lastname": "Black",
+    "email": "sblack@hogwarts.com",
+    "password": "P@df00t"
+}
+
+### Delete soda recipe by id
+DELETE http://localhost:3000/users/684e2c311777bb3e02b60da2
