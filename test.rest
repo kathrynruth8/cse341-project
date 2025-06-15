@@ -1,19 +1,12 @@
-// Recipes
+// Recipes LocalHost
 ### Get all soda recipes
 GET http://localhost:3000/sodas
-
-### Get all soda recipes - RENDER
-GET https://cse341-project-d23b.onrender.com/sodas
 
 ### Get recipe by id 
 GET http://localhost:3000/sodas/683686f9850ca9defb21661a
 
 ### Get recipe by incorrect id 
 GET http://localhost:3000/sodas/683686f9850ca9defb
-
-
-### Get recipe by id - RENDER
-GET https://cse341-project-d23b.onrender.com/sodas/683686f9850ca9defb21661a
 
 ### Create a new soda recipe
 POST http://localhost:3000/sodas
@@ -45,21 +38,6 @@ Content-Type: application/json
     "flavorTag": "fruity"
   }
 
-### Create a new soda recipe - RENDER
-POST https://cse341-project-d23b.onrender.com/sodas/
-Content-Type: application/json
-
-{
-    "recipeName": "Orange You Glad",
-    "creatorId": "user456",
-    "sodaBase": "Lemonade",
-    "syrups": ["guava", "grapefruit"],
-    "cream": false,
-    "purees": [],
-    "otherIngredients": ["fresh orange"],
-    "flavorTag": "fruity"
-  }
-
 ### Update soda recipe
 PUT http://localhost:3000/sodas/683b7b62307314eb220179ab
 Content-Type: application/json
@@ -74,6 +52,36 @@ Content-Type: application/json
     "otherIngredients": ["fresh orange"],
     "flavorTag": "fruity"
 }
+
+### Delete soda recipe by id
+DELETE http://localhost:3000/sodas/683b7b62307314eb220179ab
+
+
+# 
+# 
+# sodas RENDER
+
+### Get all soda recipes - RENDER
+GET https://cse341-project-d23b.onrender.com/sodas
+
+### Get recipe by id - RENDER
+GET https://cse341-project-d23b.onrender.com/sodas/683686f9850ca9defb21661a
+
+
+### Create a new soda recipe - RENDER
+POST https://cse341-project-d23b.onrender.com/sodas/
+Content-Type: application/json
+
+{
+    "recipeName": "Orange You Glad",
+    "creatorId": "user456",
+    "sodaBase": "Lemonade",
+    "syrups": ["guava", "grapefruit"],
+    "cream": false,
+    "purees": [],
+    "otherIngredients": ["fresh orange"],
+    "flavorTag": "fruity"
+  }
 
 ### Update soda recipe - RENDER
 PUT https://cse341-project-d23b.onrender.com/sodas/6836970d1b8ea04ed8b29c8e
@@ -90,20 +98,22 @@ Content-Type: application/json
     "flavorTag": "fruity"
 }
 
-### Delete soda recipe by id
-DELETE http://localhost:3000/sodas/683b7b62307314eb220179ab
-
 ### Delete soda recipe by id - RENDER
 DELETE https://cse341-project-d23b.onrender.com/sodas/683bc2566a413b21210bac36
 
+# 
+# 
+# 
+# Users RENDER
+
 ### Get all users
-GET http://localhost:3000/users
+GET https://cse341-project-d23b.onrender.com/users
 
 ### Get user by ID
-GET http://localhost:3000/users/684de1393114f82bfd039789
+GET https://cse341-project-d23b.onrender.com/users/684de1393114f82bfd039789
 
 ### Create a new user
-POST http://localhost:3000/users
+POST https://cse341-project-d23b.onrender.com/users
 Content-Type: application/json
 
 {
@@ -115,7 +125,7 @@ Content-Type: application/json
   }
 
 ### Update user
-PUT http://localhost:3000/users/684e2c311777bb3e02b60da2
+PUT https://cse341-project-d23b.onrender.com/users/684e57050afb8cb8747f65dd
 Content-Type: application/json
 
 {
@@ -123,9 +133,9 @@ Content-Type: application/json
     "username": "sblack4",
     "firstname": "Sirius",
     "lastname": "Black",
-    "email": "sblack@hogwarts.com",
+    "email": "sblack@hogwarts.edu",
     "password": "P@df00t"
 }
 
-### Delete soda recipe by id
-DELETE http://localhost:3000/users/684e2c311777bb3e02b60da2
+### Delete user by id
+DELETE https://cse341-project-d23b.onrender.com/users/684e56800afb8cb8747f65d8
